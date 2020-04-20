@@ -1,0 +1,8 @@
+<div class="pai">
+  <div *ngFor="let pokemon of pokemons" class="card">
+    <p class="titulo">{{pokemon.name.english}}</p>
+    <span>Vida: {{pokemon.base.HP}}</span>
+    <span>Ataque:  {{pokemon.base.Attack}}</span>
+    <span>Velocidade: {{pokemon.base.Speed}}</span>
+  </div>
+</div>
