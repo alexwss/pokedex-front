@@ -1,6 +1,13 @@
-<form>
-  <div>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" >
+  <div class="form-group">
     <label>Nome do Pokemon</label>
-    <input name="name" id="name">
+    <input placeholder="Ex: Tribufumon" type="text" name="name" [(ngModel)]="model.name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Força</label>
+    <input placeholder="Ex: 15" type="number" name="power" [(ngModel)]="model.power" class="form-control">
+  </div>
+  <div>
+    <button type="submit">Salvar</button>
   </div>
 </form>

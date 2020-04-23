@@ -1,22 +1,35 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokemonService } from '../pokemon.service';
+import { CrudPokemonService } from '../services/crud-pokemon.service';
+import { Pokemon } from '../models/pokemon';
 
 @Component({
   selector: 'app-pokemon',
   templateUrl: './pokemon.component.html',
   styleUrls: ['./pokemon.component.css'],
-  providers: [ PokemonService ]
+  providers: [CrudPokemonService]
 })
 export class PokemonComponent implements OnInit {
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private crudPokemonService: CrudPokemonService) { }
 
-  @Input() pokemons: Array<Object>;
+  @Input() textToFind: String;
+
+  @Input() pokemons: Array<Pokemon>;
 
   ngOnInit(): void {
+    this.pokemons = [];
+    this.pokemons.push({id: 1, name: "pokemon 1", power: 15});
+  }
 
-    this.pokemons = this.pokemonService.getJSON();
+  public async findPokemon() {
+    this.pokemons = await this.crudPokemonService.findPokemonByName(this.textToFind);
+  }
 
+  public async delete(poke: Pokemon, index: number){
+    await this.crudPokemonService.delete(poke);
+    this.pokemons.slice(index, 1);
+    console.log(this.pokemons);
+   // this.pokemons = <Array<Pokemon>> this.pokemons;
   }
 
 }

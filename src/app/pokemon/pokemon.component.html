@@ -1,8 +1,18 @@
+
 <div class="pai">
-  <div *ngFor="let pokemon of pokemons" class="card">
-    <p class="titulo">{{pokemon.name.english}}</p>
-    <span>Vida: {{pokemon.base.HP}}</span>
-    <span>Ataque:  {{pokemon.base.Attack}}</span>
-    <span>Velocidade: {{pokemon.base.Speed}}</span>
+
+  <div class="container pai-row">
+    <input class="col-10" type="text" placeholder="Qual pokémon?" [(ngModel)]="textToFind">
+    <button class="col-2" type="button" class="btn btn-dark" (click)="findPokemon()">Pesquisar na API</button>
   </div>
+
+  <section *ngFor="let pokemon of pokemons; let i = index" [attr.data-index]="i" class="card">
+    <h2 class="titulo">{{pokemon.name}}</h2>
+    <p>Ataque:  {{pokemon.power}}</p>
+    <div class="pai-row">
+      <button type="button" class="btn btn-dark col-1 filho">Alterar</button>
+      <button type="button" class="btn btn-dark col-1 filho" (click)="delete(pokemon, i)">Excluir</button>
+    </div>
+  </section>
+
 </div>
