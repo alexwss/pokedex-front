@@ -18,7 +18,7 @@ export class PokemonComponent implements OnInit {
 
   ngOnInit(): void {
     this.pokemons = [];
-    this.pokemons.push({id: 1, name: "pokemon 1", power: 15});
+    this.pokemons.push({id: 1, name: "pokemon test", power: 15});
   }
 
   public async findPokemon() {
@@ -27,9 +27,7 @@ export class PokemonComponent implements OnInit {
 
   public async delete(poke: Pokemon, index: number){
     await this.crudPokemonService.delete(poke);
-    this.pokemons.slice(index, 1);
-    console.log(this.pokemons);
-   // this.pokemons = <Array<Pokemon>> this.pokemons;
+    this.pokemons.splice(this.pokemons.indexOf(poke), 1);
   }
 
 }
