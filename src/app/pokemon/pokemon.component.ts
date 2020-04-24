@@ -1,6 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CrudPokemonService } from '../services/crud-pokemon.service';
 import { Pokemon } from '../models/pokemon';
+import { CadastroComponent } from '../cadastro/cadastro.component';
+
+
+import {NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pokemon',
@@ -10,7 +14,7 @@ import { Pokemon } from '../models/pokemon';
 })
 export class PokemonComponent implements OnInit {
 
-  constructor(private crudPokemonService: CrudPokemonService) { }
+  constructor(private crudPokemonService: CrudPokemonService, private modalService: NgbModal) { }
 
   @Input() textToFind: String;
 
@@ -28,6 +32,11 @@ export class PokemonComponent implements OnInit {
   public async delete(poke: Pokemon, index: number){
     await this.crudPokemonService.delete(poke);
     this.pokemons.splice(this.pokemons.indexOf(poke), 1);
+  }
+
+  public async change(){
+    const modalRef = this.modalService.open(CadastroComponent);
+    modalRef.componentInstance.title = 'Caraio';
   }
 
 }

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
@@ -14,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { FindComponent } from './pages/find/find.component';
 import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component';
+import { CadastroAlterarComponent } from './cadastro-alterar/cadastro-alterar.component';
 
 @NgModule({
   declarations: [
@@ -24,15 +27,17 @@ import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component';
     HeaderComponent,
     MenuComponent,
     FindComponent,
-    AddPokemonComponent
+    AddPokemonComponent,
+    CadastroAlterarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

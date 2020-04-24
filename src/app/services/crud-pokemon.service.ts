@@ -28,4 +28,11 @@ export class CrudPokemonService {
 
   }
 
+  public async update(pokemon: Pokemon){
+    await this.http.put("http://localhost:8080/pokedex/" + pokemon.id, pokemon).subscribe(
+      (response) => console.log("deu bom ?"+response.toString),
+      (error) => console.log("deu ruim marquinho, " + JSON.stringify(error))
+    );
+  }
+
 }
