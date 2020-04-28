@@ -10,7 +10,7 @@
     <h2 class="titulo">{{pokemon.name}}</h2>
     <p>Ataque:  {{pokemon.power}}</p>
     <div class="pai-row">
-      <button type="button" class="btn btn-dark col-1 filho" (click)="change()">Alterar</button>
+      <button type="button" class="btn btn-dark col-1 filho" (click)="change(pokemon)">Alterar</button>
       <button type="button" class="btn btn-dark col-1 filho" (click)="delete(pokemon, i)">Excluir</button>
     </div>
   </section>

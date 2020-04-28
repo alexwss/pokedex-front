@@ -34,9 +34,10 @@ export class PokemonComponent implements OnInit {
     this.pokemons.splice(this.pokemons.indexOf(poke), 1);
   }
 
-  public async change(){
+  public async change(poke: Pokemon){
     const modalRef = this.modalService.open(CadastroComponent);
     modalRef.componentInstance.title = 'Caraio';
+    modalRef.componentInstance.qualquerCoisa = poke;
   }
 
 }

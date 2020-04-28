@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { CrudPokemonService } from '../services/crud-pokemon.service';
 import { Pokemon } from '../models/pokemon';
@@ -11,11 +11,12 @@ import { Pokemon } from '../models/pokemon';
 })
 export class CadastroComponent implements OnInit {
 
-  model  = new Pokemon();
+  @Input() model  = new Pokemon();
 
   constructor(private crudPokemonService: CrudPokemonService){}
 
   ngOnInit(): void {
+
   }
 
   public onSubmit(form){

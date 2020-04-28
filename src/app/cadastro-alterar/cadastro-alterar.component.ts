@@ -11,9 +11,15 @@ export class CadastroAlterarComponent implements OnInit {
 
   @Input() titulo = "Informação";
 
+  @Input() qualquerCoisa: Object;
+
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
+  }
+
+  public closeModal(){
+    this.activeModal.close();
   }
 
 }

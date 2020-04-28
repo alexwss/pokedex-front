@@ -17,6 +17,8 @@ import { MenuComponent } from './menu/menu.component';
 import { FindComponent } from './pages/find/find.component';
 import { AddPokemonComponent } from './pages/add-pokemon/add-pokemon.component';
 import { CadastroAlterarComponent } from './cadastro-alterar/cadastro-alterar.component';
+import { ErrorComponent } from './error/error.component';
+import { IDidntFoundComponent } from './pages/i-didnt-found/i-didnt-found.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { CadastroAlterarComponent } from './cadastro-alterar/cadastro-alterar.co
     MenuComponent,
     FindComponent,
     AddPokemonComponent,
-    CadastroAlterarComponent
+    CadastroAlterarComponent,
+    ErrorComponent,
+    IDidntFoundComponent
   ],
   imports: [
     BrowserModule,
